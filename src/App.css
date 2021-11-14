@@ -4,12 +4,25 @@
     --font: 'M PLUS Code Latin', sans-serif;
     --white: #FEF9EF;
     --blue: #A2D2FF;
-    --yellow: #FFF195;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--font);
 }
 
 body {
-    background-color: var(--yellow);
+    background-color: var(--white);
     font-family: var(--font);
+}
+
+.app {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .header-component {
@@ -24,13 +37,13 @@ body {
 }
 
 .header-component .logo {
-    width: 4.2rem;
-    height: 4.2rem;
+    width: 6.2rem;
+    height: 6.2rem;
     padding: 1rem;
-    border: 1rem solid var(--yellow);
+    border: .7rem solid var(--white);
     border-radius: 50%;
     position: absolute;
-    top: 2rem;
+    top: 3rem;
     left: 4rem;
     background-color: var(--blue);
     color: var(--white);
@@ -41,4 +54,101 @@ body {
     font-size: 3rem;
     text-align: center;
     color: var(--white);
+}
+
+.counter-component {
+    width: 70%;
+    padding: .5rem .2rem;
+    background-color: var(--yellow);
+    color: var(--blue);
+    font-size: 2rem;
+    font-weight: 500;
+    text-align: center;
+    margin: 2rem;
+    user-select: none;
+}
+
+.note-plate-component {
+    width: 70%;
+    background-color: var(--blue);
+    padding: 2rem;
+    border: 1px solid var(--blue);
+    border-radius: .5rem;
+    position: relative;
+}
+
+.note-plate-component input,
+.note-plate-component textarea {
+    box-sizing: border-box;
+    width: 100%;
+    font-size: 1.5rem;
+    font-weight: 500;
+    padding: .7rem;
+    border: none;
+    border-radius: .5rem;
+}
+
+.note-plate-component input {
+    margin-bottom: 1rem;
+}
+
+.note-plate-component textarea {
+    resize: vertical;
+    font-weight: 300;
+}
+
+.note-plate-component .btn-add-note {
+    position: absolute;
+    right: 0;
+    bottom: -5rem;
+    border: .8rem solid var(--white);
+    border-radius: 50%;
+    background-color: var(--blue);
+    color: var(--white);
+    transition: all 250ms ease-in-out;
+}
+
+.note-plate-component .btn-add-note .btn-add-note-icon {
+    width: 3rem;
+    height: 3rem;
+    padding: .3rem;
+    border-radius: 50%;
+    color: var(--white);
+    transition: all 250ms ease-in-out;
+}
+
+.note-plate-component .btn-add-note:hover,
+.note-plate-component .btn-add-note:hover .btn-add-note-icon {
+    background-color: var(--blue);
+    color: var(--white);
+    border-radius: 50%;
+    transform: scale(.9);
+}
+
+.note-container-component {
+    margin-top: 6rem;
+    margin-bottom: 2rem;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.note-component {
+    width: 25%;
+}
+
+.note-component .note-icon {
+    background-color: var(--blue);
+    color: white;
+    border-radius: 50%;
+    padding: .2rem;
+    cursor: pointer;
+    transition: all 250ms ease-in;
+}
+
+.note-component .note-icon:hover {
+    transform: scale(1.3);
+    background-color: dodgerblue;
 }
