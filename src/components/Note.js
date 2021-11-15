@@ -1,18 +1,25 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Card from '@mui/material/Card';
 import CardHeader from '@mui/material/CardHeader';
 import CardContent from '@mui/material/CardContent';
 import CardActions from '@mui/material/CardActions';
 import DeleteRoundedIcon from '@mui/icons-material/DeleteRounded';
+import { GlobalContext } from '../global/GlobalStore';
 
-function Note() {
+function Note({ key, note }) {
+    const { deleteNote } = useContext(GlobalContext);
+
+    const handleDelete = datetime => {
+        deleteNote(datetime);
+    }
+
     return (
-        <Card className="note-component">
+        <Card key={key} className="note-component">
             <CardHeader
-                title={<h4>Header</h4>}
-                subheader={<p>September 14, 2016</p>}/>
-            <CardContent>This is the card contentThis is the card contentThis is the card contentThis is the card content</CardContent>
-            <CardActions>
+                title={<h4 className="note-title">{note.title}</h4>}
+                subheader={<p>{note.date}</p>}/>
+            <CardContent className="note-content">{note.note}</CardContent>
+            <CardActions onClick={() => handleDelete(note.datetime)}>
                 <DeleteRoundedIcon
                     className="note-icon"
                     sx={{ color: '#A2D2FF' }} />

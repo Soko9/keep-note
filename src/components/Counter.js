@@ -1,8 +1,24 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { GlobalContext } from '../global/GlobalStore';
 
 function Counter() {
+    const { notes } = useContext(GlobalContext);
+
+    const renderSwitch = param => {
+        switch(param) {
+            case 0:
+                return ("Empty");
+            case 1:
+                return ("There is 1 Note");
+            default:
+                return (`There is ${param} Notes`);
+        }
+    }
+
     return (
-        <h2 className="counter-component">This is counter</h2>
+        <p className="counter-component">
+            {renderSwitch(notes.length)}
+        </p>
     );
 }
 
